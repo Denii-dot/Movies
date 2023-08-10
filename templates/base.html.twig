@@ -21,10 +21,10 @@
                         <div class="flex items-center flex-shrink-0 text-white mr-6">
                             <a
                                     class="text-white no-underline hover:text-white hover:no-underline"
-                                    href="/">
-            <span class="text-2xl pl-2 font-extrabold">
-                Movies
-            </span>
+                                    href="/movies">
+                                <span class="text-2xl pl-2 font-extrabold">
+                                    Movies
+                                </span>
                             </a>
                         </div>
 
@@ -60,11 +60,11 @@
                                 @click.away="isOpen = false"
                                 x-show.transition="true">
 
-                            <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
+                            <ul class="pt-6 lg:pt-0 list-reset lg:flex justifPy-end flex-1 items-center">
                                 <li class="mr-3">
                                     <a
                                             class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                                            href="/"
+                                            href="/movies"
                                             @click="isOpen = false">
                                         Home
                                     </a>
@@ -78,16 +78,30 @@
                                     >Movies
                                     </a>
                                 </li>
-
                                 <li class="mr-3">
                                     <a
                                             class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                                            href="/contact"
+                                            href="/{{ app.user ? 'logout' : 'login'}}"
                                             @click="isOpen = false">
-                                        Contact
+                                        {{app.user ? 'Logout' : 'Login'}}
                                     </a>
                                 </li>
+                                {% if not app.user %}
+                                    <li class="mr-3">
+                                    <a
+                                            class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                                            href="/register"
+                                            @click="isOpen = false">
+                                        Register
+                                    </a>
+                                </li>
+                                {% endif %}
                             </ul>
+                            <span
+                                class="text-2xl pl-2 font-extrabold text-white"
+                            >
+                                {{app.user ? app.user.email : ""}}
+                            </span>
                         </div>
                     </nav>
                 </header>

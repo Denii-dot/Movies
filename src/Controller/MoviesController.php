@@ -24,6 +24,7 @@ class MoviesController extends AbstractController
     }
 
     #[Route('/movies', methods:['GET'], name: 'movies')]
+    #[Route('/')]
     public function index(): Response
     {
         //findAll() - SELECT * FROM movies;

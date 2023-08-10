@@ -29,6 +29,7 @@ class MovieFormType extends AbstractType
                     'placeholder' => 'Enter Release Year...'
                 ),
                 'label' => false
+
             ])
             ->add('description', TextareaType::class, [
                 'attr' => array(
@@ -36,6 +37,7 @@ class MovieFormType extends AbstractType
                     'placeholder' => 'Enter Description...'
                 ),
                 'label' => false
+
             ])
             ->add('imagePath', FileType::class, array(
                 'required' => false,
